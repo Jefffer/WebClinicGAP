@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from 'src/app/shared/patient.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-patient',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : PatientService) { }
 
   ngOnInit() {
+    this.resetForm();
+  }
+
+  resetForm(form? : NgForm) {
+    if(form != null)
+      form.resetForm();
+    this.service.formData = {      
+      idPatient : null,
+      patientName : '',
+      patientIdCard : '',
+      patientGender : '',
+      patientPhone : '',
+      patientBirth : null
+    }
+  }
+
+  onSubmit(form : NgForm){
+    this.insertRecord(form);
+  }
+
+  insertRecord(form : NgForm){
+    this.service.postPatient(form.value).subscribe(res => {
+      this.resetForm(form)
+    });
   }
 
 }

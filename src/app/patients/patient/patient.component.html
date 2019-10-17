@@ -1,3 +1,32 @@
-<p>
-  patient works!
-</p>
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <div class="form-group">
+    <label>Name</label>
+    <input name="patientName" #patientName="ngModel" [(ngModel)]="service.formData.patientName" class="form-control" required>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Identification Card</label>
+      <input name="patientIdCard" #patientIdCard="ngModel" [(ngModel)]="service.formData.patientIdCard" class="form-control" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Gender</label>
+      <input name="patientGender" #patientGender="ngModel" [(ngModel)]="service.formData.patientGender" class="form-control" required>
+    </div>
+  </div>
+
+  <div class="form-row">    
+    <div class="form-group col-md-6">
+      <label>Phone</label>
+      <input name="patientPhone" #patientPhone="ngModel" [(ngModel)]="service.formData.patientPhone" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+      <label>Birthday (dd/mm/yyyy)</label>
+      <input name="patientBirth" #patientBirth="ngModel" [(ngModel)]="service.formData.patientBirth" class="form-control" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
+</form>
