@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/shared/patient.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-patient',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class PatientComponent implements OnInit {
 
-  constructor(private service : PatientService) { }
+  constructor(private service : PatientService, private toastr : ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -34,7 +35,8 @@ export class PatientComponent implements OnInit {
 
   insertRecord(form : NgForm){
     this.service.postPatient(form.value).subscribe(res => {
-      this.resetForm(form)
+      this.toastr.success('Patient Added', 'Patients Administration');
+      this.resetForm(form);
     });
   }
 

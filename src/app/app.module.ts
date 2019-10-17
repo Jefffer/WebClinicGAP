@@ -1,7 +1,11 @@
+import { CommonModule } from '@angular/common';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http"
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { PatientsComponent } from './patients/patients.component';
@@ -14,12 +18,18 @@ import { PatientService } from './shared/patient.service';
     AppComponent,
     PatientsComponent,
     PatientComponent,
-    PatientListComponent
+    PatientListComponent,    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right'
+    })
   ],
   providers: [PatientService],
   bootstrap: [AppComponent]
