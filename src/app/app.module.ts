@@ -12,13 +12,15 @@ import { PatientsComponent } from './patients/patients.component';
 import { PatientComponent } from './patients/patient/patient.component';
 import { PatientListComponent } from './patients/patient-list/patient-list.component';
 import { PatientService } from './shared/patient.service';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientsComponent,
     PatientComponent,
-    PatientListComponent,    
+    PatientListComponent,
+    AppointmentsComponent,    
   ],
   imports: [
     BrowserModule,
