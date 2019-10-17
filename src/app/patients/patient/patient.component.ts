@@ -30,13 +30,25 @@ export class PatientComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    this.insertRecord(form);
+    if(form.value.idPatient == null)
+      this.insertRecord(form);
+    else
+      this.updateRecord(form);
   }
 
   insertRecord(form : NgForm){
     this.service.postPatient(form.value).subscribe(res => {
       this.toastr.success('Patient Added', 'Patients Administration');
       this.resetForm(form);
+      this.service.refreshList();
+    });
+  }
+
+  updateRecord(form : NgForm){
+    this.service.putPatient(form.value).subscribe(res => {
+      this.toastr.warning('Patient Modified', 'Patients Administration');
+      this.resetForm(form);
+      this.service.refreshList();
     });
   }
 
