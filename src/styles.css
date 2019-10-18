@@ -29,3 +29,8 @@ div.validation-error{
     font-size: 80%;
     color: #dc3545;
 }
+
+.scroll_list {
+    overflow: auto;
+    max-height: 370px;
+}
