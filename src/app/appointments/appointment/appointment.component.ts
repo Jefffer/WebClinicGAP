@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from 'src/app/shared/appointment.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-appointment',
@@ -18,7 +19,7 @@ export class AppointmentComponent implements OnInit {
   //   new Appointmenttype(1, 'Neurología')
   // ];
 
-  constructor(private service : AppointmentService) { }
+  constructor(private service : AppointmentService, private toastr : ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -43,6 +44,7 @@ export class AppointmentComponent implements OnInit {
 
   insertRecord(form : NgForm){
     this.service.postAppointment(form.value).subscribe(res => {
+      this.toastr.success('Appointment Created', 'Appointments Management');
       this.resetForm(form);
     })
   }
