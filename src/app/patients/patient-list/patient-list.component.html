@@ -13,7 +13,7 @@
     <td (click)="populateForm(pat)">{{pat.patientIdCard}}</td>
     <td (click)="populateForm(pat)">{{pat.patientGender}}</td>
     <td (click)="populateForm(pat)">{{pat.patientPhone}}</td>
-    <td (click)="populateForm(pat)">{{pat.patientBirth | date:'MM/dd/yyyy'}}</td>
+    <td (click)="populateForm(pat)">{{pat.patientBirth | date:'dd/M/yyyy'}}</td>
     <td><button (click)="onDelete(pat.idPatient)" class="btn btn-sm btn-outline-danger">&#935;</button></td>
   </tr>
 </table>

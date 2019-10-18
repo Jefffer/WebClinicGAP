@@ -4,5 +4,5 @@ export class Appointment {
     patientName : string;
     appointmentType : string;
     doctorName : string;
-    AppointmentDateTime : Date;    
+    AppointmentDateTime : Date;
 }

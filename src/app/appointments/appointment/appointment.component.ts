@@ -19,6 +19,9 @@ export class AppointmentComponent implements OnInit {
   //   new Appointmenttype(1, 'Neurología')
   // ];
 
+  doctorsNames = ['Jacky Heinz', 'Hugo Lombardi', 'Daniel Valencia', 'Marcela Castiblanco', 'Sandra Patiño'];
+  myDate = new Date();
+
   constructor(private service : AppointmentService, private toastr : ToastrService) { }
 
   ngOnInit() {
@@ -39,10 +42,28 @@ export class AppointmentComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    if(form.value.idAppointment == null)
-      this.insertRecord(form);
-    else
-      this.updateRecord(form);
+    // Get current date and form date 
+    const formDate = Date.parse(form.value.AppointmentDateTime);
+    const currentDate = Date.parse(this.myDate.toString());
+    // Get hours between dates
+    const diffInMs = formDate - currentDate;
+    const diffInHours = diffInMs / 1000 / 60 / 60;
+    console.log(diffInHours);
+    if(diffInHours < 24){
+      console.log(this.myDate);
+      this.dateError(form);
+    }
+    else {
+      if(form.value.idAppointment == null)
+        this.insertRecord(form);
+      else
+        this.updateRecord(form);
+    }
+  }
+
+  dateError(form : NgForm){
+    this.toastr.error('The appointment datetime must be greater than the current date', 'Appointments Management');
+    // this.resetForm(form);
   }
 
   insertRecord(form : NgForm){

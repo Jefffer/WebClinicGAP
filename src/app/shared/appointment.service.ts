@@ -12,7 +12,6 @@ export class AppointmentService {
   readonly rootURL = "http://localhost:60009/api"; // API connection
   myDate = new Date();
 
-
   constructor(private http : HttpClient) { }
 
   postAppointment(formData : Appointment){
