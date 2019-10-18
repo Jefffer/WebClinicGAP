@@ -41,7 +41,7 @@ import { AppointmentService } from './shared/appointment.service';
     // OwlDateTimeModule, OwlNativeDateTimeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+      // timeOut: 4000,
       positionClass: 'toast-bottom-right'
     })
   ],

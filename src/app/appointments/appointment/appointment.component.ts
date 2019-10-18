@@ -61,12 +61,9 @@ export class AppointmentComponent implements OnInit {
     }
   }
 
-  dateError(form : NgForm, hours : number){
-    if (hours < 0)
-      this.toastr.error('The appointment datetime must be greater than the current date', 'Appointments Management');
-    else
-      this.toastr.error('The appointment datetime must be ', 'Appointments Management');
-      // this.resetForm(form);
+  dateError(form : NgForm, hours : number){    
+    this.toastr.error('The appointment datetime must be greater than the current date', 'Appointments Management');    
+    // this.resetForm(form);
   }
 
   insertRecord(form : NgForm){
@@ -78,7 +75,7 @@ export class AppointmentComponent implements OnInit {
   }
 
   updateRecord(form : NgForm){
-    this.service.putPatient(form.value).subscribe(res => {
+    this.service.putAppointment(form.value).subscribe(res => {
       this.toastr.warning('Appointment Modified', 'Appointments Management');
       this.resetForm(form);
       this.service.refresList();

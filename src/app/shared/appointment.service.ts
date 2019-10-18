@@ -23,12 +23,12 @@ export class AppointmentService {
     .toPromise().then(res => this.list = res as Appointment[])
   }
 
-  putPatient(formData : Appointment) {
+  putAppointment(formData : Appointment) {
     console.log(this.myDate);
     return this.http.put(this.rootURL + '/Appointments/' + formData.idAppointment, formData);
   }
 
-  deletePatient(id : number){
+  deleteAppointment(id : number){
     return this.http.delete(this.rootURL + '/Appointments/' + id);
   }
 

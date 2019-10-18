@@ -15,6 +15,6 @@
       <td (click)="populateForm(app)">{{app.doctorName}}</td>
       <td (click)="populateForm(app)">{{app.AppointmentDateTime | date:'medium'}}</td>
       <!-- <td><button class="btn btn-sm btn-outline-danger">&#935;</button></td> -->
-      <td><button (click)="onDelete(app.idAppointment)" class="btn btn-sm btn-outline-danger">&#935;</button></td>
+      <td><button (click)="onDelete(app.idAppointment, app.AppointmentDateTime)" class="btn btn-sm btn-outline-danger">&#935;</button></td>
     </tr>
   </table>

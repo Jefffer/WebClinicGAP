@@ -7,7 +7,7 @@
     <th>Phone</th>    
     <th>Birthday</th>    
   </tr>
-  <tr *ngFor="let pat of service.list">
+  <tr *ngFor="let pat of service._list">
     <td (click)="populateForm(pat)">{{pat.idPatient}}</td>
     <td (click)="populateForm(pat)">{{pat.patientName}}</td>
     <td (click)="populateForm(pat)">{{pat.patientIdCard}}</td>
