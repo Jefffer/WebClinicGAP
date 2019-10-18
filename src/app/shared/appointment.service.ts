@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 export class AppointmentService {
 
   formData : Appointment;
+  list : Appointment[];
   readonly rootURL = "http://localhost:60009/api"; // API connection
 
   constructor(private http : HttpClient) { }
@@ -15,4 +16,10 @@ export class AppointmentService {
   postAppointment(formData : Appointment){
     return this.http.post(this.rootURL+'/Appointments/CreateAppoint', formData);
   }
+
+  refresList(){
+    this.http.get(this.rootURL+'/Appointments/GetAppointments')
+    .toPromise().then(res => this.list = res as Appointment[])
+  }
+
 }

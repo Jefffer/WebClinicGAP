@@ -31,7 +31,7 @@ export class AppointmentComponent implements OnInit {
     this.service.formData = {
       idAppointment : null,
       idPatient : null,
-      // patientName : '',
+      patientName : '',
       appointmentType : null,
       doctorName : '',
       AppointmentDateTime : null
