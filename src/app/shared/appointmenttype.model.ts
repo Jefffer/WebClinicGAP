@@ -1,5 +1,5 @@
 export class Appointmenttype {
-    idAppointmentType : number;
-    name : string;
-    observation : string;
+    constructor(
+        public idAppointmentType: number,
+        public name: string) { }
 }

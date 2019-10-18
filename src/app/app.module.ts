@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { ToastrModule } from 'ngx-toastr';
+
+// import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { AppComponent } from './app.component';
 import { PatientsComponent } from './patients/patients.component';
@@ -32,6 +35,8 @@ import { AppointmentService } from './shared/appointment.service';
     FormsModule,
     HttpClientModule,
     CommonModule,
+    // NgbModule,
+    // OwlDateTimeModule, OwlNativeDateTimeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,

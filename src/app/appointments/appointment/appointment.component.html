@@ -1,3 +1,32 @@
-<p>
-  appointment works!
-</p>
+<form #form="ngForm">
+  <div class="form-group">
+    <label>Pk Patient</label>
+    <input name="idPatient" #idPatient="ngModel" [(ngModel)]="service.formData.idPatient" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Patient Name</label>
+    <input name="patientName" #patientName="ngModel" [(ngModel)]="service.formData.patientName" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Appointment Type</label>
+    <select name="appointmentType" #appointmentType="ngModel" [(ngModel)]="service.formData.appointmentType" class="form-control">
+      <option *ngFor="let type of appointTypes" [value]="type">
+        {{type}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Doctor Name</label>
+    <input name="doctorName" #doctorName="ngModel" [(ngModel)]="service.formData.doctorName" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Appointment DateTime</label>
+    <input name="AppointmentDateTime" #AppointmentDateTime="ngModel" [(ngModel)]="service.formData.AppointmentDateTime" class="form-control">
+    <!-- <input [owlDateTime]="dt2" placeholder="Date Time">
+    <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
+    <owl-date-time #dt2></owl-date-time> -->
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-block">SUBMIT</button>
+  </div>
+</form>
