@@ -39,14 +39,26 @@ export class AppointmentComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){
-    this.insertRecord(form);
+    if(form.value.idAppointment == null)
+      this.insertRecord(form);
+    else
+      this.updateRecord(form);
   }
 
   insertRecord(form : NgForm){
     this.service.postAppointment(form.value).subscribe(res => {
       this.toastr.success('Appointment Created', 'Appointments Management');
       this.resetForm(form);
+      this.service.refresList();
     })
+  }
+
+  updateRecord(form : NgForm){
+    this.service.putPatient(form.value).subscribe(res => {
+      this.toastr.warning('Appointment Modified', 'Appointments Management');
+      this.resetForm(form);
+      this.service.refresList();
+    });
   }
 
 }

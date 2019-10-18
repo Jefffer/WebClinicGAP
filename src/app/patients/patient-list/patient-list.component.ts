@@ -21,7 +21,7 @@ export class PatientListComponent implements OnInit {
   }
 
   onDelete(id : number){
-    if(confirm("Do you want to delete this Patient?")){
+    if(confirm("Do you want to delete the Patient with ID "+ id +"?")){
       this.service.deletePatient(id).subscribe(res => {
         this.toastr.info('Deleted Successfully', 'Patients Administration');
         this.service.refreshList();

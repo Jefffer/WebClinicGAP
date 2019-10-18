@@ -10,6 +10,8 @@ export class AppointmentService {
   formData : Appointment;
   list : Appointment[];
   readonly rootURL = "http://localhost:60009/api"; // API connection
+  myDate = new Date();
+
 
   constructor(private http : HttpClient) { }
 
@@ -20,6 +22,15 @@ export class AppointmentService {
   refresList(){
     this.http.get(this.rootURL+'/Appointments/GetAppointments')
     .toPromise().then(res => this.list = res as Appointment[])
+  }
+
+  putPatient(formData : Appointment) {
+    console.log(this.myDate);
+    return this.http.put(this.rootURL + '/Appointments/' + formData.idAppointment, formData);
+  }
+
+  deletePatient(id : number){
+    return this.http.delete(this.rootURL + '/Appointments/' + id);
   }
 
 }
