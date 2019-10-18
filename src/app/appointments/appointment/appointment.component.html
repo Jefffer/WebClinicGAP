@@ -1,9 +1,8 @@
-<form #form="ngForm">
-
+<form #form="ngForm" (submit)="onSubmit(form)">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Pk Patient</label>
-      <input name="idPatient" #idPatient="ngModel" [(ngModel)]="service.formData.idPatient" class="form-control" required>
+      <input type="number" name="idPatient" #idPatient="ngModel" [(ngModel)]="service.formData.idPatient" class="form-control" required>
     </div>
     <div class="form-group col-md-6">
       <label>Appointment Type</label>
@@ -30,6 +29,6 @@
     <owl-date-time #dt2></owl-date-time> -->
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-lg btn-block">SUBMIT</button>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
   </div>
 </form>

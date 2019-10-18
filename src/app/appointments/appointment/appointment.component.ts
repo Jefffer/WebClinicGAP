@@ -37,4 +37,14 @@ export class AppointmentComponent implements OnInit {
     }
   }
 
+  onSubmit(form : NgForm){
+    this.insertRecord(form);
+  }
+
+  insertRecord(form : NgForm){
+    this.service.postAppointment(form.value).subscribe(res => {
+      this.resetForm(form);
+    })
+  }
+
 }
