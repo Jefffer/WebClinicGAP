@@ -15,6 +15,7 @@ import { PatientService } from './shared/patient.service';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppointmentComponent } from './appointments/appointment/appointment.component';
 import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
+import { AppointmentService } from './shared/appointment.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { AppointmentListComponent } from './appointments/appointment-list/appoin
       positionClass: 'toast-bottom-right'
     })
   ],
-  providers: [PatientService],
+  providers: [PatientService, AppointmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
