@@ -13,6 +13,8 @@ import { PatientComponent } from './patients/patient/patient.component';
 import { PatientListComponent } from './patients/patient-list/patient-list.component';
 import { PatientService } from './shared/patient.service';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { AppointmentComponent } from './appointments/appointment/appointment.component';
+import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     PatientsComponent,
     PatientComponent,
     PatientListComponent,
-    AppointmentsComponent,    
+    AppointmentsComponent,
+    AppointmentComponent,
+    AppointmentListComponent,    
   ],
   imports: [
     BrowserModule,
