@@ -27,8 +27,8 @@
     </select>
   </div>
   <div class="form-group">
-    <label>Appointment DateTime (dd/mm/yyyy hh:mm XX)</label>
-    <input name="AppointmentDateTime" #AppointmentDateTime="ngModel" type="text" date='dd/MM/yyyy' [(ngModel)]="service.formData.AppointmentDateTime" class="form-control" required>
+    <label>Appointment DateTime (MM/dd/yyyy hh:mm XX)</label>
+    <input name="AppointmentDateTime" placeholder="11/19/2019 09:15 am" #AppointmentDateTime="ngModel" type="text" date='dd/MM/yyyy' [(ngModel)]="service.formData.AppointmentDateTime" class="form-control" required>
     <!-- <input [owlDateTime]="dt2" placeholder="Date Time">
     <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
     <owl-date-time #dt2></owl-date-time> -->

@@ -49,9 +49,9 @@ export class AppointmentComponent implements OnInit {
     const diffInMs = formDate - currentDate;
     const diffInHours = diffInMs / 1000 / 60 / 60;
     console.log(diffInHours);
-    if(diffInHours < 24){
+    if(diffInHours < 6){ // The appointment must be requested at least 6 hours before
       console.log(this.myDate);
-      this.dateError(form);
+      this.dateError(form, diffInHours);
     }
     else {
       if(form.value.idAppointment == null)
@@ -61,9 +61,12 @@ export class AppointmentComponent implements OnInit {
     }
   }
 
-  dateError(form : NgForm){
-    this.toastr.error('The appointment datetime must be greater than the current date', 'Appointments Management');
-    // this.resetForm(form);
+  dateError(form : NgForm, hours : number){
+    if (hours < 0)
+      this.toastr.error('The appointment datetime must be greater than the current date', 'Appointments Management');
+    else
+      this.toastr.error('The appointment datetime must be ', 'Appointments Management');
+      // this.resetForm(form);
   }
 
   insertRecord(form : NgForm){

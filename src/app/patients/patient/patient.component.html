@@ -22,8 +22,8 @@
       <input name="patientPhone" #patientPhone="ngModel" [(ngModel)]="service.formData.patientPhone" class="form-control">
     </div>
     <div class="form-group col-md-6">
-      <label>Birthday (dd/mm/yyyy)</label>
-      <input name="patientBirth" #patientBirth="ngModel" [(ngModel)]="service.formData.patientBirth" class="form-control" required>
+      <label>Birthday (MM/dd/yyyy)</label>
+      <input name="patientBirth" placeholder="07/23/1984" #patientBirth="ngModel" [(ngModel)]="service.formData.patientBirth" class="form-control" required>
     </div>
   </div>
 
