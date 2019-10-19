@@ -8,6 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { ToastrModule } from 'ngx-toastr';
+import { RouterModule} from '@angular/router';
 
 // import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -20,6 +21,11 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppointmentComponent } from './appointments/appointment/appointment.component';
 import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 import { AppointmentService } from './shared/appointment.service';
+import { UserComponent } from './user/user.component';
+import { SingInComponent } from './user/sing-in/sing-in.component';
+import { SingUpComponent } from './user/sing-up/sing-up.component';
+import { HomeComponent } from './home/home.component';
+import { appRoutes } from './routes';
 
 @NgModule({
   declarations: [
@@ -29,13 +35,18 @@ import { AppointmentService } from './shared/appointment.service';
     PatientListComponent,
     AppointmentsComponent,
     AppointmentComponent,
-    AppointmentListComponent,    
+    AppointmentListComponent,
+    UserComponent,
+    SingInComponent,
+    SingUpComponent,
+    HomeComponent,    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     CommonModule,
+    RouterModule.forRoot(appRoutes),
     // MatDatepickerModule,
     // NgbModule,
     // OwlDateTimeModule, OwlNativeDateTimeModule,
